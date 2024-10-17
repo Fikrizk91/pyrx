@@ -1,6 +1,6 @@
 import pyrx
 import binascii
-import sleep
+import time
 
 assert pyrx.__version__ >= '0.0.3'
 
@@ -25,4 +25,4 @@ for x in range(5):
     print("Result: {}".format(hh))
     assert hh == expected[x]
 
-sleep(3600)
+time.sleep(3600)
