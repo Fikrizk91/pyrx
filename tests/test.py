@@ -14,15 +14,17 @@ expected = [
 
 seed_hash = binascii.unhexlify('63eceef7919087068ac5d1b7faffa23fc90a58ad0ca89ecb224a2ef7ba282d48')
 
-for x in range(5):
-    m = "Hello RandomX {}".format(x)
-    print("Hashing: {}".format(m))
-    if x == 0:
-        print("(first takes a while, please wait)")
-    h = 1 + x
-    bh = pyrx.get_rx_hash(m, seed_hash, h)
-    hh = binascii.hexlify(bh).decode()
-    print("Result: {}".format(hh))
-    assert hh == expected[x]
-
-time.sleep(3600)
+def loopp():
+        for x in range(5):
+                m = "Hello RandomX {}".format(x)
+                print("Hashing: {}".format(m))
+                if x == 0:
+                        print("(first takes a while, please wait)")
+                        h = 1 + x
+                        bh = pyrx.get_rx_hash(m, seed_hash, h)
+                        hh = binascii.hexlify(bh).decode()
+                        print("Result: {}".format(hh))
+                        assert hh == expected[x]
+time.sleep(60)
+for x in range(100):
+        loopp()
